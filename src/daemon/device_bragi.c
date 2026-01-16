@@ -191,7 +191,7 @@ static int start_bragi_common(usbdevice* kb){
         kb->maxpollrate = prop - 1;
 
     kb->features |= FEAT_ADJRATE;
-    kb->features &= ~FEAT_HWLOAD;
+    kb->features &= ~(FEAT_HWLOAD | FEAT_HWSAVE);
 
     // Check if the device supports fine or coarse brightness
     if(bragi_get_property(kb, BRAGI_BRIGHTNESS) >= 0)

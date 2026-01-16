@@ -330,6 +330,8 @@ static int _mkdevpath(usbdevice* kb){
                 fputs(" fwupdate", ffile);
             if(HAS_FEATURES(kb, FEAT_HWLOAD))
                 fputs(" hwload", ffile);
+            if(HAS_FEATURES(kb, FEAT_HWSAVE))
+                fputs(" hwsave", ffile);
             if(HAS_FEATURES(kb, FEAT_DONGLE))
                 fputs(" dongle", ffile);
             if(HAS_FEATURES(kb, FEAT_WIRELESS))

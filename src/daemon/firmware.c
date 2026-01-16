@@ -122,7 +122,7 @@ int getfwversion(usbdevice* kb){
                     return -1;
             }
             /// FIXME: REMOVE THIS WHEN HARDWARE PROFILES AND WIRELESS FW UPDATE ARE ADDED
-            kb->features &= ~(FEAT_HWLOAD | FEAT_FWUPDATE);
+            kb->features &= ~(FEAT_HWLOAD | FEAT_HWSAVE | FEAT_FWUPDATE);
         }
     } else if (in_pkt[1] == 0) {
         // This happens when we're in bootloader mode, but not on all devices

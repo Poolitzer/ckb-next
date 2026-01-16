@@ -163,6 +163,7 @@ typedef struct {
 #define FEAT_FWVERSION  0x040   // Has firmware version?
 #define FEAT_FWUPDATE   0x080   // Has firmware update?
 #define FEAT_HWLOAD     0x100   // Hardware load enabled?
+#define FEAT_HWSAVE     0x8000  // Hardware save enabled?
 
 #define FEAT_ANSI       0x200   // ANSI/ISO layout toggle (Mac only - not needed on Linux)
 #define FEAT_ISO        0x400
@@ -173,7 +174,7 @@ typedef struct {
 #define FEAT_BATTERY    0x4000  // Has a battery that can be read?
 
 // Standard feature sets
-#define FEAT_COMMON     (FEAT_BIND | FEAT_NOTIFY | FEAT_FWVERSION | FEAT_MOUSEACCEL | FEAT_HWLOAD)
+#define FEAT_COMMON     (FEAT_BIND | FEAT_NOTIFY | FEAT_FWVERSION | FEAT_MOUSEACCEL | FEAT_HWLOAD | FEAT_HWSAVE)
 #define FEAT_STD_RGB    (FEAT_COMMON | FEAT_RGB | FEAT_POLLRATE | FEAT_FWUPDATE)
 #define FEAT_STD_LEGACY (FEAT_COMMON)
 #define FEAT_LMASK      (FEAT_ANSI | FEAT_ISO)
