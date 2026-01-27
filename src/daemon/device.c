@@ -149,7 +149,7 @@ int _start_dev(usbdevice* kb, int makeactive){
     // Get the firmware version from the device
     if(getfwversion(kb)){
         ckb_warn("Unable to load firmware version/poll rate");
-        kb->features &= ~(FEAT_POLLRATE | FEAT_ADJRATE | FEAT_HWLOAD);
+        kb->features &= ~(FEAT_POLLRATE | FEAT_ADJRATE | FEAT_HWLOAD | FEAT_HWSAVE);
         if(!kb->fwversion)
             kb->features &= ~(FEAT_FWVERSION | FEAT_FWUPDATE);
     }
@@ -160,13 +160,13 @@ int _start_dev(usbdevice* kb, int makeactive){
         kb->features &= ~FEAT_BIND;
 
     ///
-    /// Some devices don't support hardware profiles, so remove the FEAT_HWLOAD bit.
+    /// Some devices don't support hardware profiles, so remove the FEAT_HWLOAD and FEAT_HWSAVE bits.
     ///
     if(HAS_NO_HW_PROFILE(kb))
-        kb->features &= ~FEAT_HWLOAD;
+        kb->features &= ~(FEAT_HWLOAD | FEAT_HWSAVE);
 
     ///
-    /// hwload isn't supported yet on this hardware format.
+    /// hwload isn't supported yet on this hardware format, but hwsave is.
     ///
     if(USES_FILE_HWSAVE(kb))
         kb->features &= ~FEAT_HWLOAD;
@@ -176,7 +176,7 @@ int _start_dev(usbdevice* kb, int makeactive){
     ///
     if(HAS_NO_LIGHTS(kb)) {
         kb->features &= ~FEAT_RGB;
-        kb->features &= ~FEAT_HWLOAD; // no LED data to read
+        kb->features &= ~(FEAT_HWLOAD | FEAT_HWSAVE); // no LED data to read or save
     }
 
     if(kb->product == P_M95)
