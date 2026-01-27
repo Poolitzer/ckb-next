@@ -1,3 +1,4 @@
+test
 # ckb-next: RGB Driver for Linux
 
 <a target="_blank" href="https://web.libera.chat/?channels=#ckb-next"><img src="https://img.shields.io/badge/%23irc-libera.chat-blue.svg" height="20" alt="irc.libera.chat #ckb-next" /></a>
